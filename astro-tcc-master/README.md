@@ -1,4 +1,4 @@
-# astro-tcc
+# astro
 -> passos para executar o nosso projeto
 
 baixar o projeto zip
