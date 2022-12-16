@@ -8,21 +8,11 @@ baixar o projeto zip
 
 entrar na pasta ---> ASTRO <---
 
-rodar -> git init <- no terminal
+rodar -> npm i @angular/cli 
 
-Rodar -> git remote add origin <link> <-
+rodar -> npm i 
 
-rodar -> git remote -v <-
-
-rodar -> npm i @angular/cli <-
-
-rodar -> npm i <-
-
-rodar -> ng serve <- 
-
--> clicar no link que aparece no terminal <-
+rodar -> ng serve 
 
 caso de erro no bootstrap rodar o comando -> npm i bootstrap --save <-
-
---------
 
