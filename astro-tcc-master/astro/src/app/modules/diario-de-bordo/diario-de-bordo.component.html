@@ -1,0 +1,147 @@
+<body>
+
+  <header class="header">
+    <nav id="menu-h">
+      <a class="logo" href="/">Astro</a>
+      <ul class="icone">
+        <button class="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="30" fill="currentColor" class="bi bi-justify"
+            style="padding: 0" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </button>
+        <li><a href="/home">Inicio</a></li>
+        <li><a href="/ferramentas">Ferramentas</a></li>
+        <li><a href="">Meu perfil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <div class="geral">
+    
+        <div class="capa">
+          <i class="left"></i>
+          <div class="menu"></div>
+          <h1>Diário de bordo</h1>
+          <button class="botaoPrinter" (click)="onExport()"> [?]
+          </button>
+         <div>
+          <button type="button" class="botaoAdd2" (click)="openModal(template)">+</button>
+          <button type="button" class="botaoAdd2" (click)="openModal(temp)">+</button>
+         </div>
+            
+          
+        </div>
+
+        <div>
+        <ng-template #template>
+          <div>
+            <div class="itens_marcacao">
+              <div>
+                <input  class="titulo" type="text" id="input" name="texto" [(ngModel)]="diarioDeBordo.titulocapa" placeholder="Titulo">
+              </div>
+      
+              <div>
+                <input  class="subtitulo" type="text" id="input" name="texto" [(ngModel)]="diarioDeBordo.subtitulocapa"  placeholder="Subtítulo">
+              </div>
+      
+            <div>
+              <img [src]="url"><br>
+                <input type="file" name="picture__input" alt="Imagem de capa" accept="image/*" class="picture" id="picture__input" (change)="inputFileChange($event)"/>
+            </div>
+            
+      
+            <div>
+              <input  class="instituicao" type="text" id="input" name="texto" [(ngModel)]="diarioDeBordo.instituicaocapa" placeholder="Instituição">
+            </div>
+
+            <button type="submit" class="btn-login" (click)="cadastrarDiario()">Salvar</button>
+        </div>
+        
+        </div>
+        </ng-template>
+        </div>
+
+        <div>
+          <ng-template #temp>
+          <div>
+              <input  class="titulo" type="text" id="input" name="texto" [(ngModel)]="diarioDeBordo.tituloregis" placeholder="Titulo">
+            </div>
+
+            <div>
+              <input  class="titulo" type="date" id="input" name="date" [(ngModel)]="diarioDeBordo.dataregis" placeholder="Data do registro">
+            </div>
+
+            <div>
+              <input  class="registro" type="text" id="input" name="registro" [(ngModel)]="diarioDeBordo.registro" placeholder="Seu registro">
+            </div>
+
+            <div>
+              <img [src]="url"><br>
+                <input type="file" name="picture__input" alt="Imagem de capa" accept="image/*" class="picture" id="picture__input" (change)="inputFileChange($event)"/>
+            </div>
+
+            <div>
+              <input  class="integrantes" type="text" id="input" name="integrantes" [(ngModel)]="diarioDeBordo.integrantesregis" placeholder="Registro feito por:">
+            </div>
+
+            <button type="submit" class="btn-login" (click)="cadastrarDiario()">Salvar</button>
+
+          </ng-template>
+        </div>
+
+        <div>
+          <h1>Listagem dos registros</h1>   
+      
+
+      <div class="form-group">
+        <label class="control-label">Escolha o diario</label>
+        <select [(ngModel)]="diarioDeBordo"  name="diario" class="form-control">
+            
+          <option *ngFor="let diario of diarios" [ngValue]="diario">
+              {{diario.titulocapa}}
+            </option>
+
+        </select>
+
+        <div class="table-responsive" id="content" #content>
+          <table class="table">
+  
+            <tr>
+              <th class="columnTarefa">Titulo do registro</th>
+              <th class="columnTarefa">Data</th>
+              <th class="columnTarefa">Quem fez </th>
+              <th class="columnTarefa">Registro </th>
+              <th class="columnTarefa">Foto do registro</th>
+            </tr>
+  
+          </table>
+        
+        <div class="container" id="content" #content></div>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="columnTarefa" name="tituloRegistro">{{diarioDeBordo.tituloregis}}</td>
+                <td class="columnTarefa" name="data">{{diarioDeBordo.dataregis}}</td>
+                <td class="columnTarefa" name="registro">{{diarioDeBordo.registro}}</td>
+                <td class="columnTarefa" name="integrantes">{{diarioDeBordo.integrantesregis}}</td>
+                
+                <td class="columnTarefa" name="img">{{inputFileChange($event)}}</td>
+                
+              </tr>
+            </tbody>
+            
+          </table>
+          
+        </div>
+      </div>
+    </div> 
+
+        </div>
+  </div>
+  <div>
+  </div>
+</body>
